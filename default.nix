@@ -7,14 +7,14 @@ let
   misoSource = fetchFromGitHub {
     owner = "dmjio";
     repo = "miso";
-    rev = "839b16fda65340f11c003d293f19ff5206720f65";
-    hash = "sha256-7KRnEZRbGhbeEuHyJODR3oB1gb4wRXNELW6t4oIUVIg=";
+    rev = "05bd9559d03bfa105e11116581d9b2ece66911c6";
+    hash = "sha256-eD1j1NeLzg5NLPm0n7SXChyhofOfOowA/WEwhCXDQEA=";
   };
 
  /* your stuff */
  overrides = self: super: {
    /* el miso */
-   miso = super.callCabal2nix "miso" misoSource {};
+   miso = super.callCabal2nixWithOptions "miso" misoSource "-ftemplate-haskell" {};
    /* the sauce */
    app = super.callCabal2nix "app" ./. {};
  };

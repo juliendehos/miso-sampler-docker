@@ -1,4 +1,5 @@
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- | Haskell module declaration
@@ -9,6 +10,7 @@ import           Prelude hiding (unlines)
 
 import           Miso
 import           Miso.Lens
+import           Miso.Lens.TH
 import           Miso.String
 
 -- | Type synonym for an application model
@@ -18,8 +20,7 @@ newtype Model = Model { _value :: Int }
 instance ToMisoString Model where
   toMisoString (Model v) = toMisoString v
 
-value :: Lens Model Int
-value = lens _value $ \m v -> m { _value = v }
+$(makeLenses ''Model)
 
 -- | Sum type for application events
 data Action
