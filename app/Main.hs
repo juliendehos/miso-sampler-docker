@@ -55,7 +55,7 @@ viewModel x = div_
   [ h1_
     [ class_ "counter-title"
     ]
-    [ "🍜 Miso counter"
+    [ "🍜 Miso sampler !"
     ]
   , div_
     [ class_ "counter-display"
