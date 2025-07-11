@@ -1,19 +1,23 @@
 miso-sampler
 ====================
 
-A simple example of using miso w/ nix integration
+A simple example of using [miso](https://github.com/dmjio/miso) w/ nix integration.
+
+This serves as a good template for getting started, we might wrap all of this in a 
+`create-miso-app` project.
+
+### Development
+
+Call `nix develop` to enter a shell with [GHC 9.12.2](https://haskell.org/ghc)
 
 ```bash
-$ nix-shell --run 'ghci app/Main.hs'
-GHCi, version 9.8.4: https://www.haskell.org/ghc/  :? for help
-unrecognised flag: prompt2
-unrecognised flag: ...
-
-Loaded GHCi configuration from /home/dmjio/Desktop/miso/sampler/.ghci
-[1 of 2] Compiling Main             ( app/Main.hs, interpreted )
-Ok, one module loaded.
->>> main
-Running on port 8008...
-<a href="http://localhost:8008">run</a>
->>>
+$ nix develop
 ```
+
+### Build (Web Assembly)
+
+```bash
+$ nix develop --command bash -c "make"
+```
+
+This comes with a GitHub action that builds and auto hosts the example.
