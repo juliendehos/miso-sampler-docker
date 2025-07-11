@@ -1,24 +1,36 @@
 cabal-version:      3.0
 name:               app
 version:            0.1.0.0
--- synopsis:
--- description:
+synopsis:           A miso-sampler application
+description:        Getting started miso application
 license:            BSD-3-Clause
 license-file:       LICENSE
 author:             dmjio
 maintainer:         code@dmj.io
--- copyright:
+copyright:          haskell-miso @ 2025
 category:           Web
 build-type:         Simple
 extra-doc-files:    CHANGELOG.md
--- extra-source-files:
 
 common warnings
-    ghc-options: -Wall
+  ghc-options:
+    -funbox-strict-fields -O2 -ferror-spans -fspecialise-aggressively -Wall
+
+common wasm
+  if arch(wasm32)
+    ghc-options:
+      -no-hs-main -optl-mexec-model=reactor "-optl-Wl,--export=hs_start"
+    cpp-options:
+      -DWASM
 
 executable app
-  import:           warnings
-  main-is:          Main.hs
-  build-depends:    base < 5, miso
-  hs-source-dirs:   app
-  default-language: Haskell2010
+  import:
+    wasm, warnings
+  main-is:
+    Main.hs
+  build-depends:
+    base < 5, miso
+  hs-source-dirs:
+    app
+  default-language:
+    Haskell2010

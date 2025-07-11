@@ -17,7 +17,7 @@ $ nix develop
 ### Build (Web Assembly)
 
 ```bash
-$ nix develop --command bash -c "make"
+$ nix develop .#wasm --command bash -c "make"
 ```
 
 This comes with a GitHub action that builds and auto hosts the example.
