@@ -1,10 +1,11 @@
 miso-sampler
 ====================
 
-A simple example of using [miso](https://github.com/dmjio/miso) w/ nix integration.
+A simple example of using [miso](https://github.com/dmjio/miso) w/ nix integration. This project contains a sample miso application with scripts to develop against vanilla GHC and to compile to Web Assembly.
 
-This serves as a good template for getting started, we might wrap all of this in a 
-`create-miso-app` project.
+> [!TIP] 
+> This requires installing [nix](https://nixos.org) with [Nix Flakes](https://wiki.nixos.org/wiki/Flakes) enabled.
+> Although not required, we recommend using [miso's binary cache](https://github.com/dmjio/miso?tab=readme-ov-file#binary-cache).
 
 ### Development
 
@@ -17,7 +18,7 @@ $ nix develop
 ### Build (Web Assembly)
 
 ```bash
-$ nix develop .#wasm --command bash -c "make"
+$ nix develop .#wasm --command bash -c "make" --experimental-features 'nix-command flakes'
 ```
 
 This comes with a GitHub action that builds and auto hosts the example.
