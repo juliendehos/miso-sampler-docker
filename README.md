@@ -12,8 +12,10 @@ A simple example of using [miso](https://github.com/dmjio/miso) w/ nix integrati
 Call `nix develop` to enter a shell with [GHC 9.12.2](https://haskell.org/ghc)
 
 ```bash
-$ nix develop
+$ nix develop --experimental-features nix-command --extra-experimental-features flakes
 ```
+
+Once in the shell, you can call `cabal run` to start the development server and view the application at http://localhost:8080
 
 ### Build (Web Assembly)
 
