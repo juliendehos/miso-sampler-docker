@@ -1,4 +1,4 @@
-miso-sampler
+🍔 miso-sampler 
 ====================
 
 A simple example of using [miso](https://github.com/dmjio/miso) w/ nix integration. This project contains a sample miso application with scripts to develop against vanilla GHC and to compile to Web Assembly.
@@ -21,6 +21,14 @@ Once in the shell, you can call `cabal run` to start the development server and 
 
 ```bash
 $ nix develop .#wasm --command bash -c "make" --experimental-features 'nix-command flakes'
+```
+
+### Serve
+
+To host the built application you can call `serve`
+
+```bash
+$ nix develop .#wasm --command bash -c "serve" --experimental-features 'nix-command flakes'
 ```
 
 This comes with a GitHub action that builds and auto hosts the example.
