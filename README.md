@@ -23,6 +23,12 @@ Once in the shell, you can call `cabal run` to start the development server and 
 $ nix develop .#wasm --command bash -c "make" --experimental-features 'nix-command flakes'
 ```
 
+### Build (JavaScript)
+
+```bash
+$ nix develop .#ghcjs --command bash -c "build" --experimental-features 'nix-command flakes'
+```
+
 ### Serve
 
 To host the built application you can call `serve`
