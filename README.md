@@ -37,4 +37,10 @@ To host the built application you can call `serve`
 $ nix develop .#wasm --command bash -c "serve" --experimental-features 'nix-command flakes'
 ```
 
+### Clean
+
+```bash
+$ nix develop .#wasm --command bash -c "make clean"
+```
+
 This comes with a GitHub action that builds and auto hosts the example.
