@@ -31,15 +31,15 @@ foreign export javascript "hs_start" main :: IO ()
 #endif
 -----------------------------------------------------------------------------
 main :: IO ()
-main = run $ startComponent app
+main = run (startApp app)
 -----------------------------------------------------------------------------
-app :: Component Model Action
+app :: App Model Action
 app = (component (Model 0) updateModel viewModel)
   { events = pointerEvents
   , styles = [ Sheet sheet ]
   }
 -----------------------------------------------------------------------------
-updateModel :: Action -> Effect Model Action
+updateModel :: Action -> Transition Model Action
 updateModel (AddOne event) = do
   value += 1
   io_ $ consoleLog (ms (show event))
@@ -49,7 +49,7 @@ updateModel (SubtractOne event) = do
 updateModel SayHelloWorld =
   io_ (consoleLog "Hello World!")
 -----------------------------------------------------------------------------
-viewModel :: Model -> View Action
+viewModel :: Model -> View Model Action
 viewModel x = div_
   [ class_ "counter-container" ]
   [ h1_
