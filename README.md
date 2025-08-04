@@ -1,7 +1,7 @@
 :ramen: 🍔 miso-sampler 
 ====================
 
-A simple example of using [miso](https://github.com/dmjio/miso) w/ nix integration. This project contains a sample miso application with scripts to develop against vanilla GHC and to compile to Web Assembly.
+A simple example of using [miso](https://github.com/dmjio/miso) w/ nix integration. This project contains a sample miso application with scripts to develop using hot-reload w/ vanilla GHC and to compile to Web Assembly and JavaScript.
 
 > [!TIP] 
 > This requires installing [nix](https://nixos.org) with [Nix Flakes](https://wiki.nixos.org/wiki/Flakes) enabled.
