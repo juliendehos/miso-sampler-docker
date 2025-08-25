@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: juliendehos/miso-builder:latest
 
     steps:
       - uses: actions/checkout@v4
