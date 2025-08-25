@@ -1,8 +1,10 @@
+# see also the miso-docker-builder repo
+#
 # docker build -f Dockerfile-builder -t juliendehos/miso-builder:latest .
+# docker push juliendehos/miso-builder:latest
 
 FROM nixos/nix
 WORKDIR /root/miso-builder
 ADD . /root/miso-builder
 RUN nix develop .#wasm --experimental-features 'nix-command flakes' --command bash -c "make"
-RUN nix-env -iA nixpkgs.http-server
 
