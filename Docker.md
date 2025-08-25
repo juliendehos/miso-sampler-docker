@@ -27,20 +27,3 @@ Then go to `http://localhost:8080`
 
 You can also push/deploy the `miso-app:latest` image.
 
-
-## .github/workflows/main.yml
-
-In Github Actions, just use the builder image:
-
-```
-jobs:
-  build:
-    runs-on: juliendehos/miso-builder:latest
-```
-
-and run the build command:
-
-```
-        run: nix develop .#wasm --command bash -c "make"
-```
-
