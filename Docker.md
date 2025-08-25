@@ -32,7 +32,6 @@ You can also push/deploy the `miso-app:latest` image.
 
 In Github Actions, just use the builder image:
 
-
 ```
 jobs:
   build:
